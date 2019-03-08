@@ -6,8 +6,6 @@ var firstandpike = {
     minNumCust: 23,
     maxNumCust: 65,
     avgCookieSale: 6.3,
-    // expNumCust : getCustCount(this.minNumCust,this.maxNumCust),
-    // expCookieSale : getCookieCount(this.expNumCust,this.avgCookieSale)
     }
 
 var seatac = {
