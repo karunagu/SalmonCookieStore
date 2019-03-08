@@ -56,13 +56,12 @@ function getCookieCount(numCust,avgCookies) {
   var storeCount =0;
     while (storeCount < stores.length) {
 
+    var totCookies = 0;
 
+    var liEl = document.createElement('li');
 
-  var liEl = document.createElement('li');
-
-
-  liEl.textContent = 'Store Name : ' + stores[storeCount].name;
-  StoreList.appendChild(liEl);
+    liEl.textContent = 'Store Name : ' + stores[storeCount].name;
+    StoreList.appendChild(liEl);
 //   console.log('StoreCount',storeCount);
 
   for (var i = 6; i <= 20; i++) {
@@ -89,7 +88,9 @@ function getCookieCount(numCust,avgCookies) {
 
     // 3. Append the new element to its parent in the DOM
     StoreList.appendChild(liEl);
+    totCookies = totCookies + numCookies;
   }
+  liEl.textContent = 'Total : ' + totCookies + ' Cookies';  
   storeCount = storeCount + 1;
 }
 //   console.log (stores[0],stores[0].minNumCust,stores[0].maxNumCust,stores[0].avgCookies);
