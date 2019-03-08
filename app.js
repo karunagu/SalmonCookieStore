@@ -1,40 +1,19 @@
 'use strict';
 
     // ,seatac,seattlecenter,capitolhill,alki]
-var firstandpike = {
-    name :'1st and Pike',
-    minNumCust: 23,
-    maxNumCust: 65,
-    avgCookieSale: 6.3,
-    }
 
-var seatac = {
-    name :'SeaTac',    
-    minNumCust : 3,
-    maxNumCust : 24,
-    avgCookieSale : 1.2
-    }
-
-var seattlecenter = {
-    name :'Seattle Center',    
-    minNumCust : 11,
-    maxNumCust : 38,
-    avgCookieSale : 3.7
-    }
-
-var capitolhill= {
-    name :'Capitol Hill',    
-    minNumCust : 20,
-    maxNumCust : 38,
-    avgCookieSale : 2.3
-    }
-
-var alki = {
-    name :'Alki',    
-    minNumCust : 2,
-    maxNumCust : 16,
-    avgCookieSale : 4.6
-    }
+function Stores (name,minNumCust,maxNumCust,avgCookieSale){
+  this.name = name,
+  this.minNumCust = minNumCust,
+  this.maxNumCust = maxNumCust,
+  this.avgCookieSale = avgCookieSale
+}    
+var firstandpike = new Stores('1st and Pike',23,65,6.3);
+// console.log(firstandpike);
+var seatac = new Stores('SeaTac',3,24,1.2);
+var seattlecenter = new Stores('Seattle Center',11,38,3.7);
+var capitolhill = new Stores('Capitol Hill',20,38,2.3);
+var alki = new Stores('Alki',2,16,4.6);
 
 var stores = [firstandpike,seatac,seattlecenter,capitolhill,alki];    
 function getCustCount(min, max) {
