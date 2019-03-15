@@ -66,7 +66,7 @@ function getCookieCount(numCust,avgCookies) {
 
   var rowData = [];
   rowData.push(
-    '<td>' + 'Store'+ '</td>' 
+    '<th>' + 'Store'+ '</th>' 
      )  
   for (var i = 6; i <= 19; i++) {
     if (i < 12) {
@@ -78,11 +78,11 @@ function getCookieCount(numCust,avgCookies) {
         storetime = (i-12) + ' pm' 
     }
     rowData.push(
-      '<td>' + storetime+ '</td>' 
+      '<th>' + storetime+ '</th>' 
        )
   }
   rowData.push(
-    '<td>' + 'Daily Location Total'+ '</td>' 
+    '<th>' + 'Daily Location Total'+ '</th>' 
      )
   render(rowData);
   var newRow = document.createElement('tr');
@@ -107,9 +107,6 @@ function getCookieCount(numCust,avgCookies) {
       newRow.innerHTML = ' ';      
       table.appendChild(newRow);
     storeCount = storeCount + 1;
-
-
-
 }
 
 var rowData = [];
