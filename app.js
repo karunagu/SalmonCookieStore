@@ -66,7 +66,7 @@ function getCookieCount(numCust,avgCookies) {
 
   var rowData = [];
   rowData.push(
-    '<th>' + 'Store'+ '</th>' 
+    '<td>' + 'Store'+ '</td>' 
      )  
   for (var i = 6; i <= 19; i++) {
     if (i < 12) {
@@ -78,11 +78,11 @@ function getCookieCount(numCust,avgCookies) {
         storetime = (i-12) + ' pm' 
     }
     rowData.push(
-      '<th>' + storetime+ '</th>' 
+      '<td>' + storetime + '<td>' 
        )
   }
   rowData.push(
-    '<th>' + 'Daily Location Total'+ '</th>' 
+    '<td>' + 'Daily Location Total'+ '<td>' 
      )
   render(rowData);
   var newRow = document.createElement('tr');
