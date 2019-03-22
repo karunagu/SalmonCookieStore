@@ -1,132 +1,94 @@
 'use strict';
 
-var table = document.getElementById('shell');    
+var store_form = document.getElementById('store_form');
+var store_table = document.getElementById('store_table');
+var data = [];
 
-function Stores (name,minNumCust,maxNumCust,avgCookieSale){
+// var table = document.getElementById('shell');    
+
+function Stores (name,am_6,am_7,am_8,am_9,am_10,am_11,pm_12,pm_1,pm_2,pm_3,pm_4,pm_5,pm_6,pm_7,total)
+{
   this.name = name,
-  this.minNumCust = minNumCust,
-  this.maxNumCust = maxNumCust,
-  this.avgCookieSale = avgCookieSale
+  // this.avg_Cookies = avg_Cookies,
+  this.am_6 = am_6,
+  this.am_7 = am_7,
+  this.am_8 = am_8,
+  this.am_9 = am_9, 
+  this.am_10 = am_10,
+  this.am_11 = am_11,
+  this.pm_12 = pm_12,
+  this.pm_1 = pm_1,
+  this.pm_2 = pm_2,
+  this.pm_3 = pm_3,
+  this.pm_4 = pm_4,
+  this.pm_5 = pm_5,
+  this.pm_6 = pm_6,
+  this.pm_7 = pm_7,
+  this.total = total
 }    
-var stores = [];
-var rowData = [];
-var hourTotal = [];
-
-var firstandpike = new Stores('1st and Pike',23,65,6.3);
-var seatac = new Stores('SeaTac',3,24,1.2);
-var seattlecenter = new Stores('Seattle Center',11,38,3.7);
-var capitolhill = new Stores('Capitol Hill',20,38,2.3);
-var alki = new Stores('Alki',2,16,4.6);
-stores.push(firstandpike,seattlecenter,capitolhill,alki);
-
-function getCustCount(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
 
 function getCookieCount(numCust,avgCookies) {
-    return Math.ceil(numCust * avgCookies)
+  return Math.ceil(numCust * avgCookies)
 }
 
-  var StoreList = document.getElementById('store-list');
-  var tabHead = document.getElementById('tabHead');
-  var storetime;
-  var numCust;
-  var numCookies;
-  // var storeCount =0;
+function formData(event) {
+  event.preventDefault();
 
-  function makeRow(store,totCookieStore) {
-    var totCookieStore = 0;
-    for (var i = 6; i <= 19; i++) {
-      numCust = getCustCount(store.minNumCust,store.maxNumCust);
-      numCookies = Math.ceil(numCust * store.avgCookieSale);
-      totCookieStore = totCookieStore + numCookies;
-      rowData.push(
-        '<td>' + numCookies + '</td>' 
-         ) 
-         if (isNaN(hourTotal[i])) {
-              hourTotal[i] = numCookies ;
-         }
-         else {
-              hourTotal[i] = hourTotal[i] + numCookies ;
-         }
-    }
-    return totCookieStore;
-    // console.log(rowData);    
-  }
- 
-  function render(tableRow) {
-    for (var j=0; j < tableRow.length; j++) {
-      var newRow = document.createElement('td');
-      newRow.innerHTML = tableRow[j];
-      table.appendChild(newRow);
-    }
-  }
+  var storeName = event.target.store_name.value;
+  var am_6_Cookies = getCookieCount(event.target.am_6.value,event.target.avg_cookies.value);
+  var am_7_Cookies = getCookieCount(event.target.am_7.value,event.target.avg_cookies.value);
+  var am_8_Cookies = getCookieCount(event.target.am_8.value,event.target.avg_cookies.value);
+  var am_9_Cookies = getCookieCount(event.target.am_9.value,event.target.avg_cookies.value);    
+  var am_10_Cookies = getCookieCount(event.target.am_10.value,event.target.avg_cookies.value);  
+  var am_11_Cookies = getCookieCount(event.target.am_11.value,event.target.avg_cookies.value);  
+  var pm_12_Cookies = getCookieCount(event.target.pm_12.value,event.target.avg_cookies.value);  
+  var pm_1_Cookies = getCookieCount(event.target.pm_1.value,event.target.avg_cookies.value);  
+  var pm_2_Cookies = getCookieCount(event.target.pm_2.value,event.target.avg_cookies.value);  
+  var pm_3_Cookies = getCookieCount(event.target.pm_3.value,event.target.avg_cookies.value);  
+  var pm_4_Cookies = getCookieCount(event.target.pm_4.value,event.target.avg_cookies.value);  
+  var pm_5_Cookies = getCookieCount(event.target.pm_5.value,event.target.avg_cookies.value);  
+  var pm_6_Cookies = getCookieCount(event.target.pm_6.value,event.target.avg_cookies.value);  
+  var pm_7_Cookies = getCookieCount(event.target.pm_7.value,event.target.avg_cookies.value);
+  var total = am_6_Cookies+am_7_Cookies+am_8_Cookies+am_9_Cookies+am_10_Cookies+am_11_Cookies+pm_12_Cookies+
+              pm_1_Cookies+pm_2_Cookies+pm_3_Cookies+pm_4_Cookies+pm_5_Cookies+pm_6_Cookies+pm_7_Cookies
 
-  var rowData = [];
-  rowData.push(
-    '<td>' + 'Store'+ '</td>' 
-     )  
-  for (var i = 6; i <= 19; i++) {
-    if (i < 12) {
-        storetime = i + ' am' } 
-    else if (i===12) {
-        storetime = i + ' pm' 
-    }
-    else if (i > 12) {
-        storetime = (i-12) + ' pm' 
-    }
-    rowData.push(
-      '<td>' + storetime + '<td>' 
-       )
-  }
-  rowData.push(
-    '<td>' + 'Daily Location Total'+ '<td>' 
-     )
-  render(rowData);
-  var newRow = document.createElement('tr');
-  newRow.innerHTML = ' ';      
-  table.appendChild(newRow);
-
-  
-  var storeCount = 0;
-  while (storeCount < stores.length) {
-    var totCookies = 0;
-      var rowData = [];
-      rowData.push(
-        '<td>' + stores[storeCount].name + '</td>' 
-         );    
-      var totRow = makeRow(stores[storeCount]);
-
-      rowData.push(
-        '<td>' + totRow + '</td>' 
-         )
-      render(rowData);
-      var newRow = document.createElement('tr');
-      newRow.innerHTML = ' ';      
-      table.appendChild(newRow);
-    storeCount = storeCount + 1;
+  data.push(new Stores(storeName, am_6_Cookies,am_7_Cookies,am_8_Cookies,
+                am_9_Cookies,am_10_Cookies,am_11_Cookies,pm_12_Cookies,pm_1_Cookies,pm_2_Cookies,
+                pm_3_Cookies,pm_4_Cookies,pm_5_Cookies,pm_6_Cookies,pm_7_Cookies,total              
+                ));
+  createTable();
+  store_form.reset();
 }
 
-var rowData = [];
-var grandTotal = 0;
-rowData.push(
-  '<td>' + 'Total'+ '</td>' 
-   )  
-for (var i = 6; i <= 19; i++) {
+function createTable() {
+  var row;
+  var i=0;
+  for (var i = 0; i < data.length; i++) {
+      row = document.createElement('tr');
+      row.innerHTML = '<td>' + data[i].name + '</td>' +
+          '<td>' + data[i].am_6 + '</td>'  +
+          '<td>' + data[i].am_7 + '</td>'  +
+          '<td>' + data[i].am_8 + '</td>'  +
+          '<td>' + data[i].am_9 + '</td>'  +     
+          '<td>' + data[i].am_10+ '</td>'  +
+          '<td>' + data[i].am_11+ '</td>'  +
+          '<td>' + data[i].pm_12+ '</td>'  +
+          '<td>' + data[i].pm_1 + '</td>'  +    
+          '<td>' + data[i].pm_2 + '</td>'  +
+          '<td>' + data[i].pm_3 + '</td>'  +               
+          '<td>' + data[i].pm_4 + '</td>'  +
+          '<td>' + data[i].pm_5 + '</td>'  +    
+          '<td>' + data[i].pm_6 + '</td>'  +
+          '<td>' + data[i].pm_7 + '</td>'  +
+          '<td>' + data[i].total + '</td>'             
 
-  rowData.push(
-    '<td>' + hourTotal[i]+ '</td>' 
-     )
-    grandTotal = grandTotal + hourTotal[i];
+
+  }
+
+  store_table.appendChild(row);
 }
-rowData.push(
-  '<td>' + grandTotal+ '</td>' 
-   )
-render(rowData);
-var newRow = document.createElement('tr');
-newRow.innerHTML = ' ';      
-table.appendChild(newRow);
+
+store_form.addEventListener('submit', formData);
+
 
 
