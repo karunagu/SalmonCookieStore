@@ -36,22 +36,12 @@ h2 {
     margin-bottom: 20px;    
   }
 
+
   thead {
     background: #888;
-    text-emphasis: bold;
-    font-size: 2 cm;
-  }
+}
 
-  th {
+td, th {
     padding: 20px;
-    background: #888;
-    text-emphasis: bold;
-    color: blue;
     border: solid 1px black;
-  }
-  
-  td {
-    padding: 20px;
-    
-    border: solid 1px black;
-  }
+}

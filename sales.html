@@ -8,11 +8,93 @@
 <h2>Sales forecast</h2>
 <h3>Seattle</h3>
 <h2>Sales forecast for each location</h2>
-<table>
+<!-- <table>
     <tbody id="shell"></tbody>
-  </table>
+  </table> -->
+<body>
+    <form id="store_form">
+        <fieldset>
+            <label for="store_name">Store Name</label>
+            <input type="text" name="store_name" placeholder="Store name" minLength="3" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="avg_cookies">Average number of Cookies</label>
+            <input type="text" name="avg_cookies" placeholder="Average Cookies per customer" minLength="1" required>
+        </fieldset>        
+
+        <fieldset>
+            <label for="am_6">Expected number of customers</label>
+            <input type="text" name="am_6" placeholder="@6 am" minLength="1" required>
+        <!-- </fieldset> -->
+
+        <!-- <fieldset> -->
+            <!-- <label for="am_7">Expected number of customers at 7 am</label> -->
+            <input type="text" name="am_7" placeholder="@7 am" minLength="1" required>
+        <!-- </fieldset> -->
+        <!-- <fieldset> -->
+            <!-- <label for="am_8">Expected number of customers at 8 am</label> -->
+            <input type="text" name="am_8" placeholder="@8 am" minLength="1" required>
+        <!-- </fieldset> -->
+        <!-- <fieldset> -->
+            <!-- <label for="am_9">Expected number of customers at 9 am</label> -->
+            <input type="text" name="am_9" placeholder="@9 am" minLength="1" required>
+        <!-- </fieldset> -->
+        <!-- <fieldset> -->
+            <!-- <label for="am_10">Expected number of customers at 10 am</label> -->
+            <input type="text" name="am_10" placeholder="@10 am" minLength="1" required>
+        <!-- </fieldset> -->
+        <!-- <fieldset> -->
+            <input type="text" name="am_11" placeholder="@11 am" minLength="1" required>
+        <!-- </fieldset>         -->
+        <!-- <fieldset> -->
+            <input type="text" name="pm_12" placeholder="@12 pm" minLength="1" required>
+        <!-- </fieldset>   -->
+        <!-- <fieldset> -->
+            <input type="text" name="pm_1" placeholder="@1 pm" minLength="1" required>
+        <!-- </fieldset> -->
+        <!-- <fieldset> -->
+            <input type="text" name="pm_2" placeholder="@2 pm" minLength="1" required>
+            <input type="text" name="pm_3" placeholder="@3 pm" minLength="1" required>
+
+            <input type="text" name="pm_4" placeholder="@4 pm" minLength="1" required>
+            <input type="text" name="pm_5" placeholder="@5 pm" minLength="1" required>
+
+            <input type="text" name="pm_6" placeholder="@6 pm" minLength="1" required>
+            <input type="text" name="pm_7" placeholder="@7 pm" minLength="1" required>
+        </fieldset>                      
+        
+        <button id="submit_btn" type="submit">Add Store </button>
+    </form>
+
+    <section>
+        <table>
+            <thead>
+                <th>Store Name</th>
+                <th>6 am</th>
+                <th>7 am</th>
+                <th>8 am</th>
+                <th>9 am</th>
+                <th>10 am</th>
+                <th>11 am</th>
+                <th>12 pm</th>
+                <th>1 pm</th> 
+                <th>2 pm</th>
+                <th>3 pm</th>
+                <th>4 pm</th>
+                <th>5 pm</th> 
+                <th>6 pm</th>
+                <th>7 pm</th>
+                <th>Store Total</th>                
+
+            </thead>
+            <tbody id="store_table">
+                <!-- dynamic data will be inserted here -->
+            </tbody>
+        </table>
+    </section>
 
 <!-- <ul id="store-list"></ul> -->
 <script src="app.js"></script>
-
+</body>
 </html>
